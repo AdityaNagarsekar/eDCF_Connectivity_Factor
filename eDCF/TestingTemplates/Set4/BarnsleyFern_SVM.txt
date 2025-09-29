@@ -1,0 +1,16 @@
+self.data_objects = [BarnsleyFern.BarnsleyFern(identity=1, iterations=500000, mask_points=500000, min_distance=0.01), Mask.Mask(identity=2)]
+self.data_objects_names = ['BarnsleyFern(identity=1, iterations=500000, mask_points=500000, min_distance=0.01)', 'Mask(identity=2)']
+
+self.num_points: List[int] | int = 500000
+
+self.dataset_name = 'BarnsleyFern_SVM'
+
+self.algorithm = SVM.SVM(C=[0.1, 1, 10, 100], kernel=['rbf', 'linear'], gamma=['scale', 'auto'], decision_function_shape=['ovo', 'ovr'])
+self.algorithm_name = 'SVM(C=[0.1, 1, 10, 100], kernel=[\'rbf\', \'linear\'], gamma=[\'scale\', \'auto\'], decision_function_shape=[\'ovo\', \'ovr\'])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/BarnsleyFern_SVM"

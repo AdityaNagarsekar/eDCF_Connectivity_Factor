@@ -1,0 +1,623 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Interface</title>
+    <link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/attributes.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/terminal.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/general.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/bottom.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="{% static 'scripts/buttons.js' %}"></script>
+    <script src="{% static 'scripts/datafields.js' %}"></script>
+    <script src="{% static 'scripts/execution.js' %}"></script>
+</head>
+
+<body>
+
+    <section class="greet">
+        <h1 class="greeting">
+            Welcome to Driver Interface
+        </h1>
+    </section>
+
+    <section class="control-panel">
+        
+        <h2 class="control-center">
+            Control Center
+        </h2>
+
+        <div class="slab">
+            <div class="div-flex">
+                <button class="control-button" id="generate-data" value="false" onclick="
+                        status_update(this, 1);
+                    ">
+                    <span class="button-title"> Generate Data </span> <br>  
+                    <span class="button-message"> (CAUTION: Will Override Previous Data) </span>
+                </button>
+
+                <button class="control-button" id="linear-transform" value="false" onclick="
+                        status_update(this, 2);
+                    ">
+                    <span class="button-title"> Linear Transform Data </span> <br>  
+                    <span class="button-message"> (Global Normalization of Data) </span>
+                </button>
+            </div>
+
+            <div class="div-grid">
+                <button class="control-button" id="train-algo" value="false" onclick="
+                        status_update(this, 3);
+                    ">
+                    <span class="button-title"> Train Algorithm </span> <br>  
+                    <span class="button-message"> (For Classification) </span>
+                </button>
+
+                <button class="control-button" id="calc-grid-params" value="false" onclick="
+                        status_update(this, 4);
+                    ">
+                    <span class="button-title"> Calculate Grid Parameters </span> <br>  
+                    <span class="button-message"> (Recommeded to be active most times) </span>
+                </button>
+
+                <button class="control-button" id="compute-grid" value="false" onclick="
+                        status_update(this, 5);
+                    ">
+                    <span class="button-title"> Compute Classification Grid </span> <br>  
+                    <span class="button-message"> (Algorithm Training Required) </span>
+                </button>
+
+                <button class="control-button" id="extract-boundary" value="false" onclick="
+                        status_update(this, 6);
+                    ">
+                    <span class="button-title"> Extract Boundary </span> <br>  
+                    <span class="button-message"> (Classified Grid Required) </span>
+                </button>
+            </div>
+            <div class="div-flex">
+                <button class="control-button" id="fractal-dim" value="false" onclick="
+                        status_update(this, 7);
+                    ">
+                    <span class="button-title"> Assess Fractal Dimension(Boundaries) </span> <br>
+                    <span class="button-message"> (Extracted Boundaries Required) </span>
+                </button>
+
+                <button class="control-button" id="connectivity-fac-bound" value="false" onclick="
+                        status_update(this, 8);
+                    ">
+                    <span class="button-title"> Calculate Connectivity Factor </span> <br>  
+                    <span class="button-message"> (Extracted Boundaries Required) </span>
+                </button>
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="data-display" value="false" onclick="
+                        status_update(this, 9);
+                    ">
+                    <span class="button-title"> Data Display </span> <br>  
+                    <span class="button-message"> (Limited to 2D Data) </span>
+                </button>
+
+                <button class="control-button" id="grid-display" value="false" onclick="
+                        status_update(this, 10);
+                    ">
+                    <span class="button-title"> Grid Display </span> <br>  
+                    <span class="button-message"> (Classified Grid Required) </span>
+                </button>
+
+                <button class="control-button" id="boundary-display" value="false" onclick="
+                        status_update(this, 11);
+                    ">
+                    <span class="button-title"> Boundary Display </span> <br>  
+                    <span class="button-message"> (Extracted Boundaries Required) </span>
+                </button>
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="force-grid" value="false" onclick="
+                        status_update(this, 12);
+                    ">
+                    <span class="button-title"> Force Grid Data </span> <br>  
+                    <span class="button-message"> (Datapoints Converted to Grid Points) </span>
+                </button>
+
+                <button class="control-button" id="direct-conv" value="false" onclick="
+                        status_update(this, 13);
+                    ">
+                    <span class="button-title"> Direct Conversion </span> <br>  
+                    <span class="button-message"> (CAUTION: Does not give Hatch Feature) </span>
+                </button>
+
+                <button class="control-button" id="dynamic-spacing" value="false" onclick="
+                        status_update(this, 14);
+                    ">
+                    <span class="button-title"> Dynamic Spacing Allocation </span> <br>  
+                    <span class="button-message"> (Dynamically Adjust Spacing for Data) </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="slab">
+            <div class="div-flex">
+                <button class="control-button" id="analysis" value="false" onclick="
+                        status_update(this, 15);
+                    ">
+                    <span class="button-title"> Analyse Range </span> <br>  
+                    <span class="button-message"> (Analysis over a Percentage Data Range) </span>
+                </button>
+
+                <button class="control-button" id="display-analysis" value="false" onclick="
+                        status_update(this, 16);
+                    ">
+                    <span class="button-title"> Display Range Analysis </span> <br>  
+                    <span class="button-message"> (Analysis over Range Required) </span>
+                </button>
+            </div>
+
+            <div class="div-grid">
+                <button class="control-button" id="display-force-grid" value="false" onclick="
+                        status_update(this, 17);
+                    ">
+                    <span class="button-title"> Display Force Grid Data </span> <br>  
+                    <span class="button-message"> (Force Grid Data Required) </span>
+                </button>
+
+                <button class="control-button" id="display-hatch" value="false" onclick="
+                        status_update(this, 18);
+                    ">
+                    <span class="button-title"> Display Hatch Data </span> <br>  
+                    <span class="button-message"> (Hatch Data Required) </span>
+                </button>
+
+                <button class="control-button" id="connectivity-hatch" value="false" onclick="
+                        status_update(this, 19);
+                    ">
+                    <span class="button-title"> Calculate Hatch Connectivity </span> <br>  
+                    <span class="button-message"> (Hatch Data Required) </span>
+                </button>
+
+                <button class="control-button" id="connectivity-object" value="false" onclick="
+                        status_update(this, 20);
+                    ">
+                    <span class="button-title"> Calculate Force Grid Data Connectivity </span> <br>  
+                    <span class="button-message"> (Force Grid Data Required) </span>
+                </button>
+
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="estimate-topo" value="false" onclick="
+                        status_update(this, 21);
+                    ">
+                    <span class="button-title"> Estimate Topological Dimension </span> <br>  
+                    <span class="button-message"> (Connectivity Factor Computations Required) </span>
+                </button>
+                <button class="control-button" id="estimate-frac" value="false" onclick="
+                        status_update(this, 35);
+                    ">
+                    <span class="button-title"> Estimate Fractal Dimension </span> <br>
+                    <span class="button-message"> (Fractal Computations Required) </span>
+                </button>
+            </div>
+            <div class="div-flex">
+                <button class="control-button" id="gen-rep" value="false" onclick="
+                        status_update(this, 22);
+                    ">
+                    <span class="button-title"> Generate Report </span> <br>  
+                    <span class="button-message"> (Based on Data Collected) </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="slab">
+            <div class="div-flex">
+                <button class="control-button" id="connectivity-deterioration" value="false" onclick="
+                        status_update(this, 23);
+                    ">
+                    <span class="button-title"> Analyse Connectivity Deterioration </span> <br>  
+                    <span class="button-message"> (CAUTION: May take a long time) </span>
+                </button>
+
+                <button class="control-button" id="display-cdet" value="false" onclick="
+                        status_update(this, 24);
+                    ">
+                    <span class="button-title"> Display Connectivity Deterioration Analysis</span> <br>  
+                    <span class="button-message"> (Connectivity Deterioration Analysis Required) </span>
+                </button>
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="save-force" value="false" onclick="
+                        status_update(this, 25);
+                    ">
+                    <span class="button-title"> Save Force Data </span> <br>  
+                    <span class="button-message"> (Force Grid Related Data is Saved) </span>
+                </button>
+
+                <button class="control-button" id="save-cdet" value="false" onclick="
+                        status_update(this, 26);
+                    ">
+                    <span class="button-title"> Save Deterioration Data </span> <br>  
+                    <span class="button-message"> (Connectivity Deterioration Related Data is Saved) </span>
+                </button>
+
+                <button class="control-button" id="save" value="false" onclick="
+                        status_update(this, 27);
+                    ">
+                    <span class="button-title"> Save </span> <br>  
+                    <span class="button-message"> (All Global Generated and Computed Data is Saved) </span>
+                </button>
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="time-analysis" value="false" onclick="
+                        status_update(this, 28);
+                    ">
+                    <span class="button-title"> Time Analysis (Not up to Date) </span> <br>  
+                    <span class="button-message"> (CAUTION: May take a long time) </span>
+                </button>
+
+                <button class="control-button" id="display-time-analysis" value="false" onclick="
+                        status_update(this, 29);
+                    ">
+                    <span class="button-title"> Display Time Analysis </span> <br>  
+                    <span class="button-message"> (Time Analysis Required) </span>
+                </button>
+
+                <button class="control-button" id="save-time" value="false" onclick="
+                        status_update(this, 30);
+                    ">
+                    <span class="button-title"> Save Time Data </span> <br>  
+                    <span class="button-message"> (Time Analysis Related Data is Saved) </span>
+                </button>
+            </div>
+
+            <div class="div-flex">
+                <button class="control-button" id="clear" value="false" onclick="
+                        status_update(this, 31);
+                    ">
+                    <span class="button-title"> Clear System </span> <br>  
+                    <span class="button-message"> (CAUTION: All Unsaved data is deleted) </span>
+                </button>
+
+                <button class="control-button" id="full-refresh" value="false" onclick="
+                    status_update(this, 32);
+                    initialize_all_buttons(false);
+                    initialize_all_datafields(false);
+                    status_update(this, 32);
+                ">
+                    <span class="button-title"> Refresh Page Contents </span> <br> 
+                    <span class="button-message"> (To refresh the page contents to default values) </span>
+                </button>
+            </div>
+        </div>
+    
+    </section>
+
+    <section class="input-area">
+        <div class="slab">
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Data Objects List: </span>
+                    <textarea id="data-objects" placeholder="Please enter list of data objects(Python code) e.g. Circle.Circle(identity=0, radius=0.0, center=(0.0, 0.0), noise_rate=0.0)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${1}`, this.value);
+                        }
+                    "></textarea>
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Number of Points:</span>
+                    <input type="text" id="num-points" placeholder="e.g. 15000 / [10000, 20000]" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${2}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Algorithm:</span> 
+                    <textarea id="algorithm" placeholder="Please enter algorithm object(Python code)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${3}`, this.value);
+                        }
+                    "></textarea>
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Data Object Names:</span>
+                    <textarea id="data-names" placeholder="Please enter list of strings(Python code) e.g. ['Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.0)']" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${4}`, this.value);
+                        }
+                    "></textarea>
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Dataset Name:</span>
+                    <input type="text" id="dataset" placeholder="e.g. CCD_DecisionTree" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${5}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Algorithm Name: </span>
+                    <input type="text" id="algorithm-name" placeholder="e.g. KNN" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${6}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+        </div>
+
+        <div class="slab">
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Grid Spacing: </span>
+                    <input type="number" id="grid-spacing" placeholder="e.g. 0.0005" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${7}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Grid Boundary Buffer:</span>
+                    <input type="number" id="bounds-buffer" placeholder="e.g. 0.02" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${8}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Per Axis Grid Division:</span>
+                    <input type="number" id="grid-divisions" placeholder="e.g. 50 (integer only)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${9}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Neighbour-Set Method: Boundary - </span>
+                    <input type="checkbox" id="neighbour-set-boundary" onclick="
+                        localStorage.setItem(`field${10}`, this.checked);
+                    "><span class="parameter-title">Connectivity - </span>
+                    <input type="checkbox" id="neighbour-set-connectivity" onclick="
+                        localStorage.setItem(`field${11}`, this.checked);
+                    ">
+                </label>
+
+                <p class="note-neighbour-set">
+                    If Neighbour Set Method is not chosen then we automatically use NCubeNeighbour method.
+                </p>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Directory Name:</span>
+                    <input type="text" id="directory" placeholder="e.g. Data/Random_7" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${12}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Force Grid Object Identities:</span>
+                    <input type="text" id="force-identity" placeholder="e.g. [1, 2] (integers only)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${13}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+        </div>
+
+        <div class="slab">
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Grid Spacing Scaling</span> <span class="fine-print">(Time Analysis)</span> :
+                    <input type="text" id="grid-spacing-scale" placeholder="Only... multiply / add" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${14}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Grid Division Scaling</span> <span class="fine-print">(Time Analysis)</span> :
+                    <input type="text" id="grid-division-scale" placeholder="Only... multiply / add" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${15}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Range of Divisions</span> <span class="fine-print">(Time Analysis-multiply)</span> :
+                    <input type="text" id="range-div-mul" placeholder="e.g. (-101, 100)" onkeydown="
+                    if(event.key === 'Enter'){
+                        localStorage.setItem(`field${16}`, this.value);
+                    }
+                ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Range of Divisions</span> <span class="fine-print">(Time Analysis-add)</span> :
+                    <input type="text" id="range-div-add" placeholder="e.g. (-101, 100)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${17}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">X Divisions</span> <span class="fine-print">(Connectivity Deterioration)</span> :
+                    <input type="number" id="x-coordinates-cd" placeholder="e.g. 2500 (integer only)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${18}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Point Deletion Rate</span> <span class="fine-print">(Connectivity Deterioration)</span> :
+                    <input type="number" id="deletion-cd" placeholder="e.g. 5 (integer only)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${19}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Probability of Deterioration</span> <span class="fine-print">(Connectivity Deterioration)</span> :
+                    <input type="number" id="prob-cd" placeholder="e.g. 0.2 (between 0 and 1)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${20}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Lower Percent</span> <span class="fine-print">(Dynamic Spacing)</span> :
+                    <input type="number" id="lower-perc" placeholder="e.g. 10.0 (between 0 and 100)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${21}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Upper Percent</span> <span class="fine-print">(Dynamic Spacing)</span> :
+                    <input type="number" id="upper-perc" placeholder="e.g. 80.0 (between 0 and 100)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${22}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Step</span> <span class="fine-print">(Dynamic Spacing)</span> :
+                    <input type="number" id="step" placeholder="e.g. 2.5 (>0.0)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${23}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Display Lower Based Step</span> <span class="fine-print">(Dynamic Spacing)</span> :
+                    <input type="number" id="display-lower-based" placeholder="e.g. for 50.0-55.0 give 50.0" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${24}`, this.value);
+                        }
+                    ">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Basis</span> <span class="fine-print">(Dynamic Spacing)</span> :
+                    <input type="number" id="basis" placeholder="e.g. 50.0 (between 0 and 100)" onkeydown="
+                        if(event.key === 'Enter'){
+                            localStorage.setItem(`field${25}`, this.value);
+                        }
+                    ">
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-page">
+        <section class="advanced-settings">
+            <h2>
+                Advanced Settings(Try not to change)
+            </h2>
+            <div>
+                <label class="parameters">
+                    <span class="parameter-title">Degree of Polynomial Estimation</span> <span class="fine-print">(Topological Estimation)</span>:
+                    <input type="number" id="degree" placeholder="e.g. 5(only integer)" value="5">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Start Checker</span> <span class="fine-print">(Dynamic Spacing)</span>:
+                    <input type="number" id="start-checker" placeholder="e.g. 0.1(>0)" value="0.1">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">End Checker</span> <span class="fine-print">(Dynamic Spacing)</span>:
+                    <input type="number" id="end-checker" placeholder="e.g. 0.0000001(>0)" value="0.0000001">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Binary Search Iteration Limit</span> <span class="fine-print">(Dynamic Spacing)</span>:
+                    <input type="number" id="binary-limit" placeholder="e.g. 50(only integer)" value="50">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Division Factor</span> <span class="fine-print">(Dynamic Spacing)</span>:
+                    <input type="number" id="div-fac" placeholder="e.g. 5(only integer)" value="5">
+                </label>
+
+                <label class="parameters">
+                    <span class="parameter-title">Bias</span> <span class="fine-print">(Error Bias for Analysis)</span>:
+                    <input type="number" id="bias" placeholder="e.g. 0.95" value="0.95">
+                </label>
+            </div>
+        </section>
+
+        <section class="submit-output">
+            <h2 class="terminal-log">
+                Progress Tracker
+            </h2>
+            <div>
+                <label class="terminal">
+                    Execution Output:
+                    <pre id="log">Waiting for Output...</pre>
+                </label>
+            </div>
+
+            <div>
+                <button class="submit" value="false" onclick="
+                        status_update(this, 33);
+                        run(this, 33);
+                    ">
+                    Run
+                </button>
+
+                <button class="Download-Result-Folder" value="false" onclick="
+                        status_update(this, 34);
+                        download(this, 34);
+                    ">
+                    Download Folder
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        initialize_all_buttons(true);
+
+        initialize_all_datafields(true);
+    </script>
+</body>
+</html>

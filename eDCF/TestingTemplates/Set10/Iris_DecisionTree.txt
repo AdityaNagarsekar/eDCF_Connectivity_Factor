@@ -1,0 +1,16 @@
+self.data_objects = [IrisSetosaData.IrisSetosaData(identity=1, pca_components=2), IrisVersicolorData.IrisVersicolorData(identity=2, pca_components=2), IrisVirginicaData.IrisVirginicaData(identity=3, pca_components=2)]
+self.data_objects_names = ['IrisSetosaData(identity=1, pca_components=2)', 'IrisVersicolorData(identity=2, pca_components=2)', 'IrisVirginicaData(identity=3, pca_components=2)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'Iris_DecisionTree'
+
+self.algorithm = DecisionTree.DecisionTree(criterion=['gini', 'entropy'], splitter=['best', 'random'], max_depth=[5, 10, 20, 50, 100], min_samples_split=[2, 5, 10], min_samples_leaf=[1, 2, 4], max_features=[None, 'sqrt', 'log2'])
+self.algorithm_name = 'DecisionTree(criterion=[\'gini\', \'entropy\'], splitter=[\'best\', \'random\'], max_depth=[5, 10, 20, 50, 100], min_samples_split=[2, 5, 10], min_samples_leaf=[1, 2, 4], max_features=[None, \'sqrt\', \'log2\'])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/Iris_DecisionTree"

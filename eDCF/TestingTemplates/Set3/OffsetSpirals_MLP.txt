@@ -1,0 +1,16 @@
+self.data_objects = [Spiral.Spiral(identity=1, angle_start=0, angle_end=360, center=(0.5, -0.2), noise_rate=0.6), Spiral.Spiral(identity=2, angle_start=180, angle_end=540, center=(-0.5, 0.2), noise_rate=0.6)]
+self.data_objects_names = ['Spiral(identity=1, angle_start=0, angle_end=360, center=(0.5, -0.2), noise_rate=0.6)', 'Spiral(identity=2, angle_start=180, angle_end=540, center=(-0.5, 0.2), noise_rate=0.6)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'OffsetSpirals_MLP'
+
+self.algorithm = MLP.MLP(hidden_layer_sizes=[(10, 50, 100, 50), (10, 20, 50, 20), (30, 100, 200, 100)], activation=['tanh', 'relu'], solver=['sgd', 'adam'], alpha=[0.0001, 0.001], learning_rate=['constant', 'adaptive'], max_iter=[5000])
+self.algorithm_name = 'MLP(hidden_layer_sizes=[(10, 50, 100, 50), (10, 20, 50, 20), (30, 100, 200, 100)], activation=[\'tanh\', \'relu\'], solver=[\'sgd\', \'adam\'], alpha=[0.0001, 0.001], learning_rate=[\'constant\', \'adaptive\'], max_iter=[5000])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/OffsetSpirals_MLP"

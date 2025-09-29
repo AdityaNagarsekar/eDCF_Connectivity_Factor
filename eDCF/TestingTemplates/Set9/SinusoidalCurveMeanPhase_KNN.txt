@@ -1,0 +1,16 @@
+self.data_objects = [SinusoidalCurve.SinusoidalCurve(identity=1, amplitude=1.0, phase_difference=0.0, y_center=0.0, noise_rate=0.5), SinusoidalCurve.SinusoidalCurve(identity=2, amplitude=1.0, phase_difference=180.0, y_center=0.5, noise_rate=0.5)]
+self.data_objects_names = ['SinusoidalCurve.SinusoidalCurve(identity=1, amplitude=1.0, phase_difference=0.0, y_center=0.0, noise_rate=0.5)', 'SinusoidalCurve.SinusoidalCurve(identity=2, amplitude=1.0, phase_difference=180.0, y_center=0.5, noise_rate=0.5)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'SinusoidalCurveMeanPhase_KNN'
+
+self.algorithm = KNN.KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)
+self.algorithm_name = 'KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/SinusoidalCurveMeanPhase_KNN"

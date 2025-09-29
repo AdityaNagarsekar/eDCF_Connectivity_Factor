@@ -1,0 +1,36 @@
+This is a file to enable quick input from templates of data_structures
+
+
+1. Circle.Circle(identity=0, radius=0.0, center=(0.0, 0.0), noise_rate=0.0)
+
+2. Spiral.Spiral(identity=0, angle_start=0, angle_end=0, center=(0.0, 0.0), noise_rate=0.0)
+
+3. BarnsleyFern.BarnsleyFern(identity=1, iterations=5000000, mask_points=5000000, min_distance=0.01)
+
+4. Mask.Mask(identity=0)  # Always to be called after a fractal data set in the data_objects list and there must be a Mask.npy file for it to operate
+
+5. MandelbrotSet.MandelbrotSet(identity=1, iterations=5000000, mask_points=5000000, min_distance=0.01, power=11)
+
+6. JuliaSet.JuliaSet(identity=1, iterations=5000000, mask_points=5000000, min_distance=0.01)
+
+7. SierpinskiTriangle.SierpinskiTriangle(identity=1, iterations=5000000, mask_points=5000000, min_distance=0.01)
+
+8. SierpinskiCarpet.SierpinskiCarpet(identity=1, iterations=5000000, mask_points=5000000, min_distance=0.01)
+
+9. Sphere.Sphere(identity=0, radius=0.0, center=(0.0, 0.0, 0.0), noise_rate=0.0)
+
+10. SinusoidalCurve.SinusoidalCurve(identity=1, amplitude=1.0, phase_difference=0.0, y_center=0.0, noise_rate=0.5)
+
+11. VShapeGenerator.VShapeGenerator(identity=1, angle=-45, shift=10.0, noise_rate=0.6, repetitions=5)
+
+12. IrisSetosaData.IrisSetosaData(identity=1, pca_components=2)
+
+13. IrisVersicolorData.IrisVersicolorData(identity=2, pca_components=2)
+
+14. IrisVirginicaData.IrisVirginicaData(identity=3, pca_components=2)
+
+15. Circle.Circle(identity=0, radius=0.0, center=(0.0, 0.0), noise_rate=0.0, filled_in=True)
+
+16. AndroidData.AndroidData(identity=1)
+
+17. Sphere4D.Sphere4D(identity=1, radius=0.0, center=(0.0, 0.0, 0.0, 0.0), noise_rate=1.0)

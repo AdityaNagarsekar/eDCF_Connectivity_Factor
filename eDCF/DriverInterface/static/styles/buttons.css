@@ -1,0 +1,58 @@
+/* buttons.css */
+.control-button {
+    color: hsl(0, 20%, 95%);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 2px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.control-button[value="false"]{
+    background-color: hsl(192, 95%, 39%);
+}
+
+.control-button[value="true"]{
+    background-color: hsl(104, 94%, 32%);
+}
+
+.control-button[value="false"]:hover {
+    background-color: hsl(192, 95%, calc(0.8 * 39%));
+    padding: 7px 10px;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.control-button[value="true"]:hover {
+    background-color: hsl(104, 94%, calc(0.8 * 32%));
+    padding: 7px 10px;
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.control-button[value="false"]:active {
+    background-color: hsl(104, 94%, 32%);
+    opacity: 0.7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.control-button[value="true"]:active {
+    background-color: hsl(192, 95%, 39%);
+    opacity: 0.7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-title {
+    font-weight: bold;
+}
+
+.control-button:hover .button-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}

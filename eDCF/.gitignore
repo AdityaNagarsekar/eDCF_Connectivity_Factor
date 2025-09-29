@@ -1,0 +1,42 @@
+# Ignore secret files
+.env
+*.secret
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore database files (if using SQLite)
+db.sqlite3
+
+# Ignore logs
+*.log
+
+# Ignore media/uploads (if stored locally)
+media/
+
+# Ignore static files (if generated locally)
+staticfiles/
+
+# Ignore IDE/project files
+.vscode/
+.idea/
+
+# Ignore macOS system files
+.DS_Store
+
+#Ignore Datapoints.npy
+*.npy
+*.png
+Report.txt
+
+Data
+
+algorithms/*.npy
+algorithms/__pycache__/
+
+data_structures/*.npy

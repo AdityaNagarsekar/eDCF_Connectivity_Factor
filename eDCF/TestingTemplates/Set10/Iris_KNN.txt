@@ -1,0 +1,16 @@
+self.data_objects = [IrisSetosaData.IrisSetosaData(identity=1, pca_components=2), IrisVersicolorData.IrisVersicolorData(identity=2, pca_components=2), IrisVirginicaData.IrisVirginicaData(identity=3, pca_components=2)]
+self.data_objects_names = ['IrisSetosaData(identity=1, pca_components=2)', 'IrisVersicolorData(identity=2, pca_components=2)', 'IrisVirginicaData(identity=3, pca_components=2)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'Iris_KNN'
+
+self.algorithm = KNN.KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)
+self.algorithm_name = 'KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/Iris_KNN"

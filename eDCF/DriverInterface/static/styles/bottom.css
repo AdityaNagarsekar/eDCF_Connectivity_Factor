@@ -1,0 +1,83 @@
+.control-panel{
+    background-color: hsl(240, 1%, 37%);
+
+    position: fixed;
+
+    display: flex;
+
+    flex-direction: column;
+
+    bottom: 0px;
+    right: 4px;
+    left: 4px;
+
+    border-radius: 5px;
+
+    padding: 2px;
+
+    margin: 4px 4px 0px 4px;
+
+    height: 210px;
+    overflow-y: scroll;
+    
+}
+
+.control-panel .div-flex{
+    display: flex;
+
+    flex-direction: column;
+    border: 2px solid hsl(0, 5%, 8%);
+    border-radius: 5px;
+    background-color: hsl(0, 5%, 8%);
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 2px;
+
+    padding: 1px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.control-panel .div-grid{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 4px;
+    row-gap: 4px;
+
+    border: 2px solid hsl(0, 5%, 8%);
+    border-radius: 5px;
+    background-color: hsl(0, 5%, 8%);
+
+    align-items: center;
+
+    margin: 2px;
+
+    padding: 1px 4px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.control-panel .slab{
+    display: flex;
+}
+
+.control-center{
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    z-index: -1;
+    margin: 0;
+
+    background-color: rgb(173, 3, 3);
+    color: rgb(234, 234, 234);
+}

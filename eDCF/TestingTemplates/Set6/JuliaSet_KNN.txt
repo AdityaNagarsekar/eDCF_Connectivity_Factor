@@ -1,0 +1,16 @@
+self.data_objects = [JuliaSet.JuliaSet(identity=1, iterations=500000, mask_points=500000, min_distance=0.01), Mask.Mask(identity=2)]
+self.data_objects_names = ['JuliaSet(identity=1, iterations=500000, mask_points=500000, min_distance=0.01)', 'Mask(identity=2)']
+
+self.num_points: List[int] | int = 500000
+
+self.dataset_name = 'JuliaSet_KNN'
+
+self.algorithm = KNN.KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)
+self.algorithm_name = 'KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/JuliaSet_KNN"

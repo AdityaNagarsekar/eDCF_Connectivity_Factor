@@ -1,0 +1,16 @@
+self.data_objects = [Circle.Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.7), Circle.Circle(identity=2, radius=3.5, center=(0.0, 0.0), noise_rate=0.7)]
+self.data_objects_names = ['Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.7)', 'Circle(identity=2, radius=3.5, center=(0.0, 0.0), noise_rate=0.7)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'OCCD_DecisionTree'
+
+self.algorithm = DecisionTree.DecisionTree(criterion=['gini', 'entropy'], splitter=['best', 'random'], max_depth=[5, 10, 20, 50, 100], min_samples_split=[2, 5, 10], min_samples_leaf=[1, 2, 4], max_features=[None, 'sqrt', 'log2'])
+self.algorithm_name = 'DecisionTree(criterion=[\'gini\', \'entropy\'], splitter=[\'best\', \'random\'], max_depth=[5, 10, 20, 50, 100], min_samples_split=[2, 5, 10], min_samples_leaf=[1, 2, 4], max_features=[None, \'sqrt\', \'log2\'])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/OCCD_DecisionTree"

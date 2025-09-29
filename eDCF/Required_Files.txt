@@ -1,0 +1,28 @@
+For files stored in FractalProject Directory (for versions 2.2.2 and above, none of these files are required for saving anymore)
+
+1. Data_Points_Plot.png
+2. Grid_Plot.png
+3. Grid_Plot_Datapoints.png
+4. Boundary_Plot.png
+5. Data_Points_Plot_Boundary.png
+6. Grid_Plot_Boundary.png
+7. Datapoints.npy
+8. Grid_Info.npy
+9. Grid_Bounds.npy
+10. Divided_Grid_Bounds.npy
+11. Grid_Points.npy
+12. Dist_Boundary.npy
+13. Boundary_Type.npy
+14. Dimensions.npy
+15. Connectivity_Factors.npy
+16. Report.txt
+
+
+For files stored in algorithms package
+
+1. Hyper_Params.npy
+2. Testing_Score.npy
+3. X_train.npy
+4. X_test.npy
+5. y_train.npy
+6. y_test.npy

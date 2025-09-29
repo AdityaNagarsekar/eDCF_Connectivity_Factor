@@ -1,0 +1,10 @@
+This is a file to enable quick input from templates of algorithms
+
+
+1. KNN.KNN(k_start=1, p_start=1, p_lim=5, k_lim=75, cvn=5, leaf_start=1, leaf_lim=50)
+
+2. MLP.MLP(hidden_layer_sizes=[(10, 10, 10)], activation=['tanh', 'relu', 'logistic'], solver=['sgd', 'adam'], alpha=[0.0001, 0.001], learning_rate=['constant', 'adaptive'], max_iter=[5000])
+
+3. DecisionTree.DecisionTree(criterion=['gini', 'entropy'], splitter=['best', 'random'], max_depth=[None, 5, 10, 20], min_samples_split=[2, 5, 10], min_samples_leaf=[1, 2, 4], max_features=[None, 'sqrt', 'log2'])
+
+4. SVM.SVM(C=[0.1, 1, 10], kernel=['rbf'], gamma=['scale','auto'], decision_function_shape=['ovo'])

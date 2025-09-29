@@ -1,0 +1,16 @@
+self.data_objects = [JuliaSet.JuliaSet(identity=1, iterations=500000, mask_points=500000, min_distance=0.01), Mask.Mask(identity=2)]
+self.data_objects_names = ['JuliaSet(identity=1, iterations=500000, mask_points=500000, min_distance=0.01)', 'Mask(identity=2)']
+
+self.num_points: List[int] | int = 500000
+
+self.dataset_name = 'JuliaSet_MLP'
+
+self.algorithm = MLP.MLP(hidden_layer_sizes=[(10, 50, 100, 50), (10, 20, 50, 20), (30, 100, 200, 100)], activation=['tanh', 'relu'], solver=['sgd', 'adam'], alpha=[0.0001, 0.001], learning_rate=['constant', 'adaptive'], max_iter=[5000])
+self.algorithm_name = 'MLP(hidden_layer_sizes=[(10, 50, 100, 50), (10, 20, 50, 20), (30, 100, 200, 100)], activation=[\'tanh\', \'relu\'], solver=[\'sgd\', \'adam\'], alpha=[0.0001, 0.001], learning_rate=[\'constant\', \'adaptive\'], max_iter=[5000])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/JuliaSet_MLP"

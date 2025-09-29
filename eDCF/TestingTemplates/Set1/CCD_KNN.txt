@@ -1,0 +1,16 @@
+self.data_objects = [Circle.Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.5), Circle.Circle(identity=2, radius=4.0, center=(0.0, 0.0), noise_rate=0.5)]
+self.data_objects_names = ['Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.5)', 'Circle(identity=2, radius=4.0, center=(0.0, 0.0), noise_rate=0.5)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'CCD_KNN'
+
+self.algorithm = KNN.KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)
+self.algorithm_name = 'KNN(k_start=1, p_start=1, p_lim=5, k_lim=30, cvn=5, leaf_start=1, leaf_lim=50)'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/CCD_KNN"

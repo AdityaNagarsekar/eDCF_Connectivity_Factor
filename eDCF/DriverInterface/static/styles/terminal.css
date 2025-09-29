@@ -1,0 +1,147 @@
+.bottom-page{
+    display: flex;
+
+    gap: 10px;
+}
+
+/* Submit Output Section */
+.submit-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Terminal Log Header */
+.terminal-log {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+    margin-bottom: 15px;
+}
+
+.submit-output div:first-child{
+    width: 100%;
+}
+
+/* Terminal Output Container */
+.terminal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 14px;
+    color: rgb(184, 4, 4);
+    font-weight: bold;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Preformatted Text (Log Output) */
+#log {
+    background-color: black;
+    color: rgb(0, 255, 0);
+    font-size: 14px;
+    padding: 15px;
+    min-width: 500px;
+    width: 100%;
+    max-height: 500px;
+    height: 400px;
+    min-height: 300px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-family: "Courier New", monospace;
+
+    /* Ensure text is aligned to the start */
+    display: block;  /* Ensure it does not behave as a flex container */
+    text-align: left; /* Aligns text to the left */
+
+    overflow-y: scroll;
+
+    box-sizing: border-box;
+}
+
+
+/* Buttons Container */
+.submit-output div:last-child {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+
+    justify-content: space-evenly;
+}
+
+/* Buttons */
+.submit, 
+.Download-Result-Folder {
+    background-color: hsl(192, 95%, 39%);
+    color: white;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submit[value="false"], 
+.Download-Result-Folder[value="false"] {
+    background-color: hsl(192, 95%, 39%);
+}
+
+.submit[value="true"], 
+.Download-Result-Folder[value="true"] {
+    background-color: hsl(17, 94%, 39%);
+}
+
+.submit[value="false"]:hover, 
+.Download-Result-Folder[value="false"]:hover {
+    background-color: hsl(192, 95%, calc(0.8 * 31%));
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.submit[value="true"]:hover, 
+.Download-Result-Folder[value="true"]:hover {
+    background-color: hsl(17, 94%, calc(0.8 * 39%));
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.submit[value="true"]:active, 
+.Download-Result-Folder[value="true"]:active {
+    background-color: hsl(17, 94%, 39%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .submit-output {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #log {
+        height: 150px;
+    }
+
+    .submit-output div:last-child {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .submit, 
+    .Download-Result-Folder {
+        width: 100%;
+    }
+}

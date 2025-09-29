@@ -1,0 +1,16 @@
+self.data_objects = [Circle.Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.7), Circle.Circle(identity=2, radius=3.5, center=(0.0, 0.0), noise_rate=0.7)]
+self.data_objects_names = ['Circle(identity=1, radius=3.0, center=(0.0, 0.0), noise_rate=0.7)', 'Circle(identity=2, radius=3.5, center=(0.0, 0.0), noise_rate=0.7)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'OCCD_SVM'
+
+self.algorithm = SVM.SVM(C=[0.1, 1, 10, 100], kernel=['rbf', 'linear'], gamma=['scale', 'auto'], decision_function_shape=['ovo', 'ovr'])
+self.algorithm_name = 'SVM(C=[0.1, 1, 10, 100], kernel=[\'rbf\', \'linear\'], gamma=[\'scale\', \'auto\'], decision_function_shape=[\'ovo\', \'ovr\'])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/OCCD_SVM"

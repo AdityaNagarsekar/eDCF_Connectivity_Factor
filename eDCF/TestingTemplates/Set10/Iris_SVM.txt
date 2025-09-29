@@ -1,0 +1,16 @@
+self.data_objects = [IrisSetosaData.IrisSetosaData(identity=1, pca_components=2), IrisVersicolorData.IrisVersicolorData(identity=2, pca_components=2), IrisVirginicaData.IrisVirginicaData(identity=3, pca_components=2)]
+self.data_objects_names = ['IrisSetosaData(identity=1, pca_components=2)', 'IrisVersicolorData(identity=2, pca_components=2)', 'IrisVirginicaData(identity=3, pca_components=2)']
+
+self.num_points: List[int] | int = 10000
+
+self.dataset_name = 'Iris_SVM'
+
+self.algorithm = SVM.SVM(C=[0.1, 1, 10, 100], kernel=['rbf', 'linear'], gamma=['scale', 'auto'], decision_function_shape=['ovo', 'ovr'])
+self.algorithm_name = 'SVM(C=[0.1, 1, 10, 100], kernel=[\'rbf\', \'linear\'], gamma=[\'scale\', \'auto\'], decision_function_shape=[\'ovo\', \'ovr\'])'
+
+self.grid_space: float = 0.0005
+self.bounds_buffer: float = 0.0
+self.grid_divide: int = 50
+self.neighbour_set_method: List[bool] = [False,False]
+
+self.directory_name = "Data/Iris_SVM"
